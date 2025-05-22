@@ -1,6 +1,6 @@
 # ⚡ The Quantum Grid
 
-<img src="https://plus.unsplash.com/premium_photo-1716999684556-f2f310f27e3a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="700" height= "500">
+<img src="https://plus.unsplash.com/premium_photo-1716999684556-f2f310f27e3a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
 
 Quantum Grid is a project designed to address some of the underlying issues that have been observed within the current electricity billing system. At Quantum Grid we aim to improve customers experiences by easing up the process of purchase and payment of tokens.
 
