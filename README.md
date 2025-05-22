@@ -4,14 +4,6 @@
 
 Quantum Grid is a project designed to address some of the underlying issues that have been observed within the current electricity billing system. At Quantum Grid we aim to improve customers experiences by easing up the process of purchase and payment of tokens.
 
-**Team Members**  
-- <a href="https://github.com/JoyJudy">`JoyJudy Wangui`</a> - Database Design and Connectivity
-- <a href="https://github.com/404error-notfound">`Angela Achieng`</a> - User Interface Design
-- <a href="https://github.com/stil-e">`Brian Mathara`</a> - Frontend coordination
-- <a href="https://github.com/benir-o">`Benir Odeny`</a> - Database and Programming Logic
-- <a href="https://github.com/gabu67">`Gabriel Osugo`</a> - System components design
-- <a href="https://github.com/Suraj-231">`Suraj Kumar`</a> - User Interface Design
-
 ---
 
 ## 🌍 Problem Statement
@@ -56,3 +48,12 @@ Our aim is to improve customer interactions during purchase and consumption of e
 ## Vision
 
 This is an academic project purposed with an aim to improve the lives of people.
+
+
+## Team Members
+- <a href="https://github.com/JoyJudy">`JoyJudy Wangui`</a> - Database Design and Connectivity
+- <a href="https://github.com/404error-notfound">`Angela Achieng`</a> - User Interface Design
+- <a href="https://github.com/stil-e">`Brian Mathara`</a> - Frontend coordination
+- <a href="https://github.com/benir-o">`Benir Odeny`</a> - Database and Programming Logic
+- <a href="https://github.com/gabu67">`Gabriel Osugo`</a> - System components design
+- <a href="https://github.com/Suraj-231">`Suraj Kumar`</a> - User Interface Design
