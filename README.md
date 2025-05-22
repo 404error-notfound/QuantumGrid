@@ -55,4 +55,4 @@ Our aim is to improve customer interactions during purchase and consumption of e
 
 ## Vision
 
-This is an academic project meant with an aim to improve the lives of people.
+This is an academic project purposed with an aim to improve the lives of people.
