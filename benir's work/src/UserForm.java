@@ -25,18 +25,18 @@ public class UserForm {
         JButton submitButton=new JButton("Submit");
 
         //set my positions and sizes
-        frame.setSize(350,250);
+        frame.setSize(500,400);
         frame.setLayout(null);
 
-        nameLabel.setBounds(20,20,80,25);
-        emailLabel.setBounds(20,60,80,25);
-        passwordLabel.setBounds(20,100,80,25);
+        nameLabel.setBounds(200,40,80,25);
+        emailLabel.setBounds(200,80,80,25);
+        passwordLabel.setBounds(175,120,80,25);
 
-        nameField.setBounds(100,20,80,25);
-        emailField.setBounds(100,60,80,25);
-        passwordField.setBounds(100,100,80,25);
+        nameField.setBounds(250,40,80,25);
+        emailField.setBounds(250,80,80,25);
+        passwordField.setBounds(250,120,80,25);
 
-        submitButton.setBounds(100,150,100,30);
+        submitButton.setBounds(250,160,100,30);
 
         //Add the edited items to the frame
         frame.add(nameLabel);
@@ -49,8 +49,8 @@ public class UserForm {
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         //Handle submit button click
+        submitButton.addActionListener(new SubmitButtonListener(nameField,emailField,passwordField,frame));
 
     }
 }
