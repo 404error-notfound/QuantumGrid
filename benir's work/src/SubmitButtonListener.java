@@ -11,6 +11,10 @@ public class SubmitButtonListener implements ActionListener {
     private final JTextField emailField;
     private final JPasswordField passwordField;
 
+    public static int findUserCount(User newUser){
+        return newUser.getCount();
+    }
+
     public SubmitButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField){
         this.nameField =nameField;
         this.emailField=emailField;
@@ -35,6 +39,8 @@ public class SubmitButtonListener implements ActionListener {
             statement.setString(3,password);
             //We then add the user to the database
             statement.executeUpdate();
+
+            //System.out.println(findUserCount(newUser));
             JOptionPane.showMessageDialog(null,"User "+name+" saved successfully");
             //We then close the connection
             statement.close();
