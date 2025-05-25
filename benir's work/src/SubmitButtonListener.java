@@ -7,16 +7,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class SubmitButtonListener implements ActionListener {
-    private JTextField nameField;
-    private JTextField emailField;
-    private JPasswordField passwordField;
-    private JFrame frame;
+    private final JTextField nameField;
+    private final JTextField emailField;
+    private final JPasswordField passwordField;
 
-    public SubmitButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField, JFrame frame){
+    public SubmitButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField){
         this.nameField =nameField;
         this.emailField=emailField;
         this.passwordField=passwordField;
-        this.frame=frame;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -37,13 +35,14 @@ public class SubmitButtonListener implements ActionListener {
             statement.setString(3,password);
             //We then add the user to the database
             statement.executeUpdate();
+            JOptionPane.showMessageDialog(null,"User "+name+" saved successfully");
             //We then close the connection
             statement.close();
             conn.close();
 
             } catch (Exception ex) {
-                ex.printStackTrace();
                 System.out.println("An error occurred in connection");
+
 
         }
 

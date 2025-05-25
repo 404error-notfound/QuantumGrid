@@ -50,7 +50,7 @@ public class UserForm {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Handle submit button click
-        submitButton.addActionListener(new SubmitButtonListener(nameField,emailField,passwordField,frame));
+        submitButton.addActionListener(new SubmitButtonListener(nameField,emailField,passwordField));
 
     }
 }
