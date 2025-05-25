@@ -1,3 +1,5 @@
+package Credentials;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,16 +8,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class SubmitButtonListener implements ActionListener {
-    private final JTextField nameField;
-    private final JTextField emailField;
-    private final JPasswordField passwordField;
+public class ButtonListener implements ActionListener {
+    private JFrame parent;
+    private JTextField nameField;
+    private JTextField emailField;
+    private JPasswordField passwordField;
 
     public static int findUserCount(User newUser){
         return newUser.getCount();
     }
-
-    public SubmitButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField){
+    public ButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField){
         this.nameField =nameField;
         this.emailField=emailField;
         this.passwordField=passwordField;
@@ -41,7 +43,7 @@ public class SubmitButtonListener implements ActionListener {
             statement.executeUpdate();
 
             //System.out.println(findUserCount(newUser));
-            JOptionPane.showMessageDialog(null,"User "+name+" saved successfully");
+            JOptionPane.showMessageDialog(null,"Credentials.User "+name+" saved successfully");
             //We then close the connection
             statement.close();
             conn.close();
@@ -53,4 +55,9 @@ public class SubmitButtonListener implements ActionListener {
         }
 
     }
+//    public void LoginPerformed(ActionEvent e){
+//
+//        String email=emailField.getText();
+//        String password=new String(passwordField.getPassword());
+//    }
 }

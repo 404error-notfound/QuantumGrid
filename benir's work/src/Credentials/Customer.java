@@ -1,4 +1,6 @@
-public class Customer extends User{
+package Credentials;
+
+public class Customer extends User {
 
     private Integer CustomerID;
 

@@ -1,3 +1,5 @@
+package Credentials;
+
 import javax.swing.*;
 
 
@@ -46,11 +48,29 @@ public class UserForm {
         //We set the frame to be visible
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        submitButton.addActionListener(new SubmitButtonListener(nameField,emailField,passwordField));
+        submitButton.addActionListener(new ButtonListener(nameField,emailField,passwordField));
 
 
     }
     public static void main(String[] args) {
-        makeFrame("User Registration","Name","Email","Password");
+        //makeFrame("Credentials.User Registration","Name","Email","Password");
+        JFrame frame=new JFrame("Credentials.Main Page");
+        frame.setSize(500,400);
+        frame.setLayout(null);
+
+        JButton LoginButton=new JButton("Log in");
+        JButton SignUpButton=new JButton("Sign up");
+
+        LoginButton.setBounds(130,160,80,25);
+        SignUpButton.setBounds(130,200,80,25);
+
+
+        frame.add(LoginButton);
+        frame.add(SignUpButton);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        LoginButton.addActionListener(new LoginListener(frame));
+
     }
 }
