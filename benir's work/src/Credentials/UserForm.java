@@ -71,6 +71,5 @@ public class UserForm {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         LoginButton.addActionListener(new LoginListener(frame));
-
     }
 }

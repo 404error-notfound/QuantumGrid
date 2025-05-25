@@ -10,9 +10,9 @@ import java.sql.PreparedStatement;
 
 public class ButtonListener implements ActionListener {
     private JFrame parent;
-    private JTextField nameField;
-    private JTextField emailField;
-    private JPasswordField passwordField;
+    protected JTextField nameField;
+    protected JTextField emailField;
+    protected JPasswordField passwordField;
 
     public static int findUserCount(User newUser){
         return newUser.getCount();
