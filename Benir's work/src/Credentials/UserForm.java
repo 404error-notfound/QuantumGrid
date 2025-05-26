@@ -53,7 +53,7 @@ public class UserForm {
 
     }
     public static void main(String[] args) {
-        //makeFrame("Credentials.User Registration","Name","Email","Password");
+        //makeFrame("User Registration","Name","Email","Password");
         JFrame frame=new JFrame("Credentials.Main Page");
         frame.setSize(500,400);
         frame.setLayout(null);
