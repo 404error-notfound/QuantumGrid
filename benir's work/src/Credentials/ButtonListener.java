@@ -1,3 +1,5 @@
+package Credentials;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,17 +8,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class SubmitButtonListener implements ActionListener {
-    private JTextField nameField;
-    private JTextField emailField;
-    private JPasswordField passwordField;
-    private JFrame frame;
+public class ButtonListener implements ActionListener {
+    private JFrame parent;
+    protected JTextField nameField;
+    protected JTextField emailField;
+    protected JPasswordField passwordField;
 
-    public SubmitButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField, JFrame frame){
+    public static int findUserCount(User newUser){
+        return newUser.getCount();
+    }
+    public ButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField){
         this.nameField =nameField;
         this.emailField=emailField;
         this.passwordField=passwordField;
-        this.frame=frame;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -37,15 +41,23 @@ public class SubmitButtonListener implements ActionListener {
             statement.setString(3,password);
             //We then add the user to the database
             statement.executeUpdate();
+
+            //System.out.println(findUserCount(newUser));
+            JOptionPane.showMessageDialog(null,"Credentials.User "+name+" saved successfully");
             //We then close the connection
             statement.close();
             conn.close();
 
             } catch (Exception ex) {
-                ex.printStackTrace();
                 System.out.println("An error occurred in connection");
+
 
         }
 
     }
+//    public void LoginPerformed(ActionEvent e){
+//
+//        String email=emailField.getText();
+//        String password=new String(passwordField.getPassword());
+//    }
 }

@@ -27,7 +27,7 @@ Our aim is to improve customer interactions during purchase and consumption of e
 
 ## 🔧 Functional Requirements
 
-- ✅ User account creation and login  
+- ✅ Credentials.User account creation and login  
 - ✅ Purchase of electricity tokens via mobile banking, M-Pesa, or in-branch  
 - ✅ Real-time token generation and delivery  
 - ✅ View usage and payment history  
@@ -52,8 +52,8 @@ This is an academic project purposed with an aim to improve the lives of people.
 
 ## Team Members
 - <a href="https://github.com/JoyJudy">`JoyJudy Wangui`</a> - Database Design and Connectivity
-- <a href="https://github.com/404error-notfound">`Angela Achieng`</a> - User Interface Design
+- <a href="https://github.com/404error-notfound">`Angela Achieng`</a> - Credentials.User Interface Design
 - <a href="https://github.com/stil-e">`Brian Mathara`</a> - Frontend coordination
 - <a href="https://github.com/benir-o">`Benir Odeny`</a> - Database and Programming Logic
 - <a href="https://github.com/gabu67">`Gabriel Osugo`</a> - System components design
-- <a href="https://github.com/Suraj-231">`Suraj Kumar`</a> - User Interface Design
+- <a href="https://github.com/Suraj-231">`Suraj Kumar`</a> - Credentials.User Interface Design
