@@ -1,9 +1,9 @@
 package Credentials;
 
 abstract public class User {
-    private String name;
-    private String email;
-    private String Password;
+    protected String name;
+    protected String email;
+    protected String Password;
     private static int count=0;
     public User(String name, String email, String password) {
         this.name = name;
