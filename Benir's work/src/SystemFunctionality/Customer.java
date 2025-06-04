@@ -3,10 +3,12 @@ package SystemFunctionality;
 public class Customer extends User {
 
     private Integer userNo;
+    private Double Tokens;
 
-    public Customer(String name, String email, String password, Integer userNo) {
-        super(name, email, password);
+    public Customer(Integer customerId,String name, String email, String password, Integer userNo,Double Tokens) {
+        super(customerId,name, email, password);
         this.userNo = userNo;
+        this.Tokens=Tokens;
     }
 
 

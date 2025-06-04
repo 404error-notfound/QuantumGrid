@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class ButtonListener implements ActionListener {
+    protected User commonUser;
     protected JTextField nameField;
     protected JTextField emailField;
     protected JPasswordField passwordField;
@@ -18,7 +19,7 @@ public class ButtonListener implements ActionListener {
     public static int findUserCount(User newUser){
         return newUser.getCount();
     }
-    public ButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField){
+    public ButtonListener(JTextField nameField, JTextField emailField, JPasswordField passwordField,User u1){
         this.nameField =nameField;
         this.emailField=emailField;
         this.passwordField=passwordField;
