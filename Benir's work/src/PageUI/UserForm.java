@@ -1,4 +1,4 @@
-package Credentials;
+package PageUI;
 
 import javax.swing.*;
 

@@ -1,4 +1,6 @@
-package Credentials;
+package PageUI;
+
+import SystemFunctionality.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class ButtonListener implements ActionListener {
-    private JFrame parent;
     protected JTextField nameField;
     protected JTextField emailField;
     protected JPasswordField passwordField;
@@ -43,7 +44,7 @@ public class ButtonListener implements ActionListener {
             statement.executeUpdate();
 
             //System.out.println(findUserCount(newUser));
-            JOptionPane.showMessageDialog(null,"Credentials.User "+name+" saved successfully");
+            JOptionPane.showMessageDialog(null,"SystemFunctionality.User "+name+" saved successfully");
             //We then close the connection
             statement.close();
             conn.close();

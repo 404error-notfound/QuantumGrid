@@ -1,9 +1,10 @@
-package Credentials;
+package SystemFunctionality;
 
 abstract public class User {
     protected String name;
     protected String email;
     protected String Password;
+    //protected int userNo; (MeterNo)
     private static int count=0;
     public User(String name, String email, String password) {
         this.name = name;
@@ -13,9 +14,7 @@ abstract public class User {
     }
     abstract void checkTokens();
     abstract void makePayment();
-    abstract void checkElectricityUsage();
-    abstract void viewPaymentHistory();
-    abstract void updatePaymentHistory();
+
 
     public String getName() {
         return name;

@@ -1,11 +1,11 @@
 # ⚡ The Quantum Grid
 ## Team Members
 - <a href="https://github.com/JoyJudy">`JoyJudy Wangui`</a> - Database Design and Connectivity
-- <a href="https://github.com/404error-notfound">`Angela Achieng`</a> - Credentials.User Interface Design
+- <a href="https://github.com/404error-notfound">`Angela Achieng`</a> - SystemFunctionality.User Interface Design
 - <a href="https://github.com/stil-e">`Brian Mathara`</a> - Frontend coordination
 - <a href="https://github.com/benir-o">`Benir Odeny`</a> - Database and Programming Logic
 - <a href="https://github.com/gabu67">`Gabriel Osugo`</a> - Frontend development
-- <a href="https://github.com/Suraj-231">`Suraj Kumar`</a> - Credentials.User Interface Design
+- <a href="https://github.com/Suraj-231">`Suraj Kumar`</a> - SystemFunctionality.User Interface Design
 
 
 <img src="https://plus.unsplash.com/premium_photo-1716999684556-f2f310f27e3a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
