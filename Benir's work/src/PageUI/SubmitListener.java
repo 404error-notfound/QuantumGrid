@@ -1,4 +1,6 @@
-package Credentials;
+package PageUI;
+
+import SystemFunctionality.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +12,8 @@ import java.sql.ResultSet;
 public class SubmitListener extends ButtonListener {
 
 
-    public SubmitListener(JTextField nameField, JTextField emailField, JPasswordField passwordField) {
-        super(nameField, emailField, passwordField);
+    public SubmitListener(JTextField nameField, JTextField emailField, JPasswordField passwordField, User u2) {
+        super(nameField, emailField, passwordField,u2);
     }
 
     @Override
