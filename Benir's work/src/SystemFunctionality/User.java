@@ -15,7 +15,7 @@ abstract public class User {
         count++;
     }
     abstract void checkTokens();
-    abstract void makePayment();
+    abstract void makePayment(Double amount);
 
 
     public String getName() {
