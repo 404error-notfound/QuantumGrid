@@ -1,5 +1,7 @@
 package SystemFunctionality;
 
+import java.sql.SQLException;
+
 abstract public class User {
     protected Integer UserId;
     protected String name;
@@ -14,18 +16,15 @@ abstract public class User {
         this.Password = password;
         count++;
     }
-    abstract void checkTokens();
+    abstract void checkTokens() throws SQLException;
     abstract void makePayment(Double amount);
-
 
     public String getName() {
         return name;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getPassword() {
         return Password;
     }

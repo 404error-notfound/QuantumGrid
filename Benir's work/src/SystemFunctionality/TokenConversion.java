@@ -1,5 +1,5 @@
 package SystemFunctionality;
 
-public interface TokenSystem {
+public interface TokenConversion {
     double convertToTokens(Double amount);
 }

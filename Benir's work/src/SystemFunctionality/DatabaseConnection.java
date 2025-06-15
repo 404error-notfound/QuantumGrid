@@ -5,12 +5,20 @@ import java.sql.*;
 
 public class DatabaseConnection {
     //Managing table updates
-    public void checkTokenColumn(Connection conn, Integer customerId, String customerPassword) throws SQLException {
-        String sqlStatement="SELECT customer_tokens FROM customers c  JOIN users u on c.customer_id=u.id WHERE u.id=? AND u.password=?";
-        PreparedStatement stmt=conn.prepareStatement(sqlStatement);
-        stmt.setInt(1,customerId);
-        stmt.setString(2,customerPassword);
-        ResultSet resultSet= stmt.executeQuery();
+    public void checkTokenColumn(Connection conn, Integer customerId,Double Tokens) throws SQLException {
+        String sqlStatement1= "UPDATE customers SET customer_tokens=? WHERE customer_id=?";
+        PreparedStatement stmt1=conn.prepareStatement(sqlStatement1);
+        stmt1.setDouble(1, Tokens);
+        stmt1.setInt(2, customerId);
+        System.out.println(Tokens);
+
+        stmt1.executeUpdate();
+        stmt1.close();
+
+        String sqlStatement2 ="SELECT customer_tokens FROM customers WHERE customer_id=?";
+        PreparedStatement stmt2 =conn.prepareStatement(sqlStatement2);
+        stmt2.setInt(1,customerId);
+        ResultSet resultSet= stmt2.executeQuery();
         if (resultSet.next()){
             String customer_tokens=resultSet.getString("customer_tokens");
             JOptionPane.showMessageDialog(null,"You have "+customer_tokens+ " tokens");
@@ -18,7 +26,7 @@ public class DatabaseConnection {
             JOptionPane.showMessageDialog(null,"Invalid Email or Password input");
         }
         resultSet.close();
-        stmt.close();
+        stmt2.close();
         conn.close();
     }
     /**
@@ -45,9 +53,11 @@ public class DatabaseConnection {
 
     }
 
-    public static void main(String[] args) {
-        Customer c1= new Customer(1,"benir odeny","n@mail.com","abcdef",101,150.00);
+    public static void main(String[] args) throws SQLException {
+        Customer c1= new Customer(1,"benir odeny","n@mail.com","abcdef",
+                101,150.00,"MPESA");
         c1.checkTokens();
+        c1.makePayment(3000.00);
         c1.makePayment(3000.00);
         c1.checkTokens();
         c1.makePayment(3000.00);
