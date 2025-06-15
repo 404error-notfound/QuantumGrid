@@ -5,8 +5,8 @@ import java.sql.*;
 
 public class Customer extends User {
 
-    private DatabaseConnection connection;
-    private PaymentService service;
+    private final DatabaseConnection connection;
+    private final PaymentService service;
     private Double Tokens;
     private static final Double TOKEN_UNIT=20.57;
 
