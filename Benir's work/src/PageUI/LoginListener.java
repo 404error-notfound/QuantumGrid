@@ -56,7 +56,7 @@ public class LoginListener implements ActionListener {
         LoginFrame.setVisible(true);
         LoginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         LoginFrame.add(submitButton);
-        submitButton.addActionListener(new SubmitListener(nameField,emailField,passwordField1,new Customer(1,"john","john@mail.com","35xd3",234,34.5,"MPESA")));
+        submitButton.addActionListener(new SubmitListener(nameField,emailField,passwordField1,new Customer(173,"Alicia Alex","alicia@gmail.com","abcd34",576,100.00,"Global Pay")));
 
         parent.setVisible(false);
     }

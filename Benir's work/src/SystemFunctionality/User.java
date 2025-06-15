@@ -17,7 +17,7 @@ abstract public class User {
         count++;
     }
     abstract void checkTokens() throws SQLException;
-    abstract void makePayment(Double amount);
+    abstract void makePayment(Double amount) throws SQLException;
 
     public String getName() {
         return name;

@@ -54,8 +54,8 @@ public class DatabaseConnection {
     }
 
     public static void main(String[] args) throws SQLException {
-        Customer c1= new Customer(1,"benir odeny","n@mail.com","abcdef",
-                101,150.00,"MPESA");
+        Customer c1= new Customer(1,"Benir Odeny","b@company.com",
+                "abcdef",101,150.00,"MPESA");
         c1.checkTokens();
         c1.makePayment(3000.00);
         c1.makePayment(3000.00);

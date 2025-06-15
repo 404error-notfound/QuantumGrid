@@ -17,38 +17,27 @@ public class Customer extends User {
         this.service=new PaymentService(serviceName);
         this.connection=new DatabaseConnection();
     }
-    //Use a sql query to retrieve token amount
-    //This should only happen when a user is logged in to the database or a user signs in to the database.
+
     @Override
     void checkTokens() throws SQLException {
             Connection validateConnection=service.getConnection();
             connection.checkTokenColumn(validateConnection,UserId,Tokens);
     }
     @Override
-    void makePayment(Double amount) {
+    void makePayment(Double amount) throws SQLException {
         //Let 1 token represent 20.57 ksh and 1 KWH
         //20.57 shillings -> 1 Kwh/1 token
         VerifyPayments payment1=(payment_amount -> payment_amount<TOKEN_UNIT);
         if (payment1.verification(amount)){
             JOptionPane.showMessageDialog(null,"A token requires not less than 20.57");
         }else{
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection conn= DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/user_db",
-                        "root",
-                        "ManCity@254"
-                );
-                TokenConversion conversion1=(payment_amount -> {
-                    Tokens+=payment_amount/TOKEN_UNIT;
-                    return Tokens;
-                });
-                Double customerTokens=conversion1.convertToTokens(amount);
-                DatabaseConnection databaseConnection = new DatabaseConnection();
-                databaseConnection.updateTokens(conn,customerTokens,UserId);
-            } catch (ClassNotFoundException | SQLException e) {
-                throw new RuntimeException(e);
-            }
+            Connection validateConnection= service.getConnection();
+            TokenConversion conversion1=(payment_amount->{
+                Tokens+=payment_amount/TOKEN_UNIT;
+                return Tokens;
+            });
+            Tokens=conversion1.convertToTokens(amount);
+            connection.updateTokens(validateConnection,Tokens,UserId);
         }
     }
 
