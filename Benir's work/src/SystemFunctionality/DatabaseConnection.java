@@ -4,7 +4,19 @@ import javax.swing.*;
 import java.sql.*;
 
 public class DatabaseConnection {
-    //Managing table updates
+    public static void checkAllUsers(Connection conn) throws SQLException{
+        String sqlQuery="SELECT * FROM users";
+        PreparedStatement statement=conn.prepareStatement(sqlQuery);
+        ResultSet resultSet=statement.executeQuery();
+        while (resultSet.next()){
+            int id = resultSet.getInt("id");                // column name: "id"
+            String name = resultSet.getString("name");      // column name: "name"
+            String email = resultSet.getString("email");    // column name: "email"
+            System.out.println("User: " + id + ", " + name + ", " + email);
+        }
+        resultSet.close();
+        statement.close();
+    }
     public void checkTokenColumn(Connection conn, Integer customerId,Double Tokens) throws SQLException {
         String sqlStatement1= "UPDATE customers SET customer_tokens=? WHERE customer_id=?";
         PreparedStatement stmt1=conn.prepareStatement(sqlStatement1);
@@ -29,14 +41,7 @@ public class DatabaseConnection {
         stmt2.close();
         conn.close();
     }
-    /**
-     * Updates customer tokens in the database
-     *
-     *  The ID of the customer to update
-     *  The amount to convert to tokens and update
-     * @throws ClassNotFoundException If JDBC driver is not found
-     * @throws SQLException If there's an error during database operations
-     */
+
     public void updateTokens(Connection connection,Double customerTokens,Integer customerId) throws SQLException{
         String sqlStatement="UPDATE customers SET customer_tokens =? WHERE customer_id=? ";
         PreparedStatement stmt=connection.prepareStatement(sqlStatement);
@@ -62,6 +67,9 @@ public class DatabaseConnection {
         c1.checkTokens();
         c1.makePayment(3000.00);
         c1.checkTokens();
+        SystemManagement company1=new SystemManagement();
+        company1.verifyTokens(c1);
+        company1.checkUserData(new Admin());
         //Probably create a method that:
         /*
         Once logged in to a database, the customer is instantiated
