@@ -11,12 +11,23 @@ public class Customer extends User {
     private static final Double TOKEN_UNIT=20.57;
 
     public Customer(Integer customerId,String name, String email, String password,
-                    Integer houseNo,Double initialTokens,String serviceName) {
+                    Integer houseNo,Double initialTokens,
+                    PaymentService serviceName,DatabaseConnection connection) {
         super(customerId,name, email, password);
         this.Tokens=initialTokens;
-        this.service=new PaymentService(serviceName);
-        this.connection=new DatabaseConnection();
+        this.service=serviceName;
+        this.connection=connection;
     }
+
+    public Customer(Integer customerId,String name,
+                    String email, String password,
+                    Double initialTokens, PaymentService service,
+                    DatabaseConnection connection) {
+    super(customerId,name, email, password);
+         this.Tokens=initialTokens;
+         this.service=service;
+         this.connection=connection;
+}
 
     @Override
     void checkTokens() throws SQLException {

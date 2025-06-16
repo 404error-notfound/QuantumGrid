@@ -59,10 +59,15 @@ public class DatabaseConnection {
     }
 
     public static void main(String[] args) throws SQLException {
-        Customer c1= new Customer(1,"Benir Odeny","b@company.com",
-                "abcdef",101,150.00,"MPESA");
+        DatabaseConnection OpenAIDbase=new DatabaseConnection();
+        PaymentService creditCard=new PaymentService("MPESA");
+        Customer c1= new Customer(1,"Benir Odeny",
+                "b@company.com",
+                "abcdef",101,
+                150.00,creditCard,OpenAIDbase);
         c1.checkTokens();
         c1.makePayment(3000.00);
+        c1.checkTokens();
         c1.makePayment(3000.00);
         c1.checkTokens();
         c1.makePayment(3000.00);
