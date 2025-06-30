@@ -31,6 +31,7 @@ abstract public class User {
     public int getCount(){
         return count;
     }
+    public Integer getUserId(){return UserId;}
 
 
 }

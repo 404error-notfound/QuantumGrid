@@ -51,6 +51,9 @@ public class Customer extends User {
             connection.updateTokens(validateConnection,Tokens,UserId);
         }
     }
+    public Double getTokens(){
+        return Tokens;
+    }
 
 
 }

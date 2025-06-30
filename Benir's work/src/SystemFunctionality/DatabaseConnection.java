@@ -4,6 +4,16 @@ import javax.swing.*;
 import java.sql.*;
 
 public class DatabaseConnection {
+    private PaymentService serviceName;
+    public DatabaseConnection(PaymentService serviceObject){
+        this.serviceName=serviceObject;
+    }
+
+
+    public void connectCustomer(Customer customer) throws SQLException{
+        Connection validateConnection=serviceName.getConnection();
+        checkTokenColumn(validateConnection,customer.UserId,customer.getTokens());
+    }
     public static void checkAllUsers(Connection conn) throws SQLException{
         String sqlQuery="SELECT * FROM users";
         PreparedStatement statement=conn.prepareStatement(sqlQuery);
@@ -59,22 +69,24 @@ public class DatabaseConnection {
     }
 
     public static void main(String[] args) throws SQLException {
-        DatabaseConnection OpenAIDbase=new DatabaseConnection();
+
         PaymentService creditCard=new PaymentService("MPESA");
+        DatabaseConnection OpenAIDbase=new DatabaseConnection(creditCard);
         Customer c1= new Customer(1,"Benir Odeny",
                 "b@company.com",
                 "abcdef",101,
                 150.00,creditCard,OpenAIDbase);
+
         c1.checkTokens();
         c1.makePayment(3000.00);
         c1.checkTokens();
-        c1.makePayment(3000.00);
-        c1.checkTokens();
-        c1.makePayment(3000.00);
-        c1.checkTokens();
-        SystemManagement company1=new SystemManagement();
-        company1.verifyTokens(c1);
-        company1.checkUserData(new Admin());
+//        c1.makePayment(3000.00);
+//        c1.checkTokens();
+//        c1.makePayment(3000.00);
+//        c1.checkTokens();
+//        SystemManagement company1=new SystemManagement();
+//        company1.verifyTokens(c1);
+//        company1.checkUserData(new Admin());
         //Probably create a method that:
         /*
         Once logged in to a database, the customer is instantiated
