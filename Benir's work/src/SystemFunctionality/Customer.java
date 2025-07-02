@@ -5,6 +5,7 @@ import java.sql.*;
 
 public class Customer extends User {
 
+    public int id;
     private final DatabaseConnection connection;
     private final PaymentService service;
     private Double Tokens;
@@ -19,11 +20,11 @@ public class Customer extends User {
         this.connection=connection;
     }
 
-    public Customer(Integer customerId,String name,
-                    String email, String password,
+    public Customer(String name,
+                    String email, String password,Integer houseNo,
                     Double initialTokens, PaymentService service,
                     DatabaseConnection connection) {
-    super(customerId,name, email, password);
+    super(name, email, password);
          this.Tokens=initialTokens;
          this.service=service;
          this.connection=connection;

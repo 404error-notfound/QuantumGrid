@@ -3,16 +3,26 @@ package SystemFunctionality;
 import javax.swing.*;
 import java.sql.*;
 
-public class DatabaseConnection {
+public class DatabaseConnection implements Connectable{
     private PaymentService serviceName;
     public DatabaseConnection(PaymentService serviceObject){
         this.serviceName=serviceObject;
     }
 
 
-    public void connectCustomer(Customer customer) throws SQLException{
-        Connection validateConnection=serviceName.getConnection();
-        checkTokenColumn(validateConnection,customer.UserId,customer.getTokens());
+    @Override
+    public Connection getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        Connection conn= DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/user_db",
+                "root",
+                "ManCity@254"
+        );
+        return conn;
     }
     public static void checkAllUsers(Connection conn) throws SQLException{
         String sqlQuery="SELECT * FROM users";
@@ -51,6 +61,23 @@ public class DatabaseConnection {
         stmt2.close();
         conn.close();
     }
+    public void savetoDatabase(Customer customer) throws SQLException{
+        Connection conn=this.getConnection();
+        String sql="INSERT INTO users (name,email,password) VALUES (?,?,?)";
+        PreparedStatement statement=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1,customer.getName());
+        statement.setString(2,customer.getEmail());
+        statement.setString(3,customer.getPassword());
+        statement.executeUpdate();
+        ResultSet generatedKeys=statement.getGeneratedKeys();
+
+        if (generatedKeys.next()) {
+            customer.id=generatedKeys.getInt(1);
+            System.out.println("Customer added with ID: " +customer.id);
+        }
+        statement.close();
+        System.out.println("customer saved, probably");
+    }
 
     public void updateTokens(Connection connection,Double customerTokens,Integer customerId) throws SQLException{
         String sqlStatement="UPDATE customers SET customer_tokens =? WHERE customer_id=? ";
@@ -76,10 +103,14 @@ public class DatabaseConnection {
                 "b@company.com",
                 "abcdef",101,
                 150.00,creditCard,OpenAIDbase);
-
+//        Customer c2= new Customer("Kenya","K@mail.com","374ske",132,500.00,creditCard,OpenAIDbase);
+//
+//        OpenAIDbase.savetoDatabase(c2);
         c1.checkTokens();
         c1.makePayment(3000.00);
         c1.checkTokens();
+//        Admin a1=new Admin();
+//        a1.checkAllUsers(creditCard);
 //        c1.makePayment(3000.00);
 //        c1.checkTokens();
 //        c1.makePayment(3000.00);
@@ -92,4 +123,6 @@ public class DatabaseConnection {
         Once logged in to a database, the customer is instantiated
          */
     }
+
+
 }

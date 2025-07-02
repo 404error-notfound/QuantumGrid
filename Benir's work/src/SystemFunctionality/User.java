@@ -16,6 +16,11 @@ abstract public class User {
         this.Password = password;
         count++;
     }
+    public User(String name,String email,String password){
+        this.name=name;
+        this.email=email;
+        this.Password=password;
+    }
     abstract void checkTokens() throws SQLException;
     abstract void makePayment(Double amount) throws SQLException;
 

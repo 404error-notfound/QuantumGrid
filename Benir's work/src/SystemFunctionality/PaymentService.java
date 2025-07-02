@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class PaymentService implements PaymentRepository{
+public class PaymentService implements Connectable {
     String serviceName;
 
     public PaymentService(String serviceName){
