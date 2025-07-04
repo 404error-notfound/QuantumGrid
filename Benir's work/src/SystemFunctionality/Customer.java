@@ -10,22 +10,25 @@ public class Customer extends User {
     private final PaymentService service;
     private Double Tokens;
     private static final Double TOKEN_UNIT=20.57;
+    private String houseNo;
 
     public Customer(Integer customerId,String name, String email, String password,
-                    Integer houseNo,Double initialTokens,
+                    String houseNo,Double initialTokens,
                     PaymentService serviceName,DatabaseConnection connection) {
         super(customerId,name, email, password);
+        this.houseNo=houseNo;
         this.Tokens=initialTokens;
         this.service=serviceName;
         this.connection=connection;
     }
 
     public Customer(String name,
-                    String email, String password,Integer houseNo,
+                    String email, String password,String houseNo,
                     Double initialTokens, PaymentService service,
                     DatabaseConnection connection) {
     super(name, email, password);
          this.Tokens=initialTokens;
+         this.houseNo=houseNo;
          this.service=service;
          this.connection=connection;
 }
@@ -55,6 +58,8 @@ public class Customer extends User {
     public Double getTokens(){
         return Tokens;
     }
-
-
+    public int getId(){return id;}
+    public String getHouseNo() {
+        return houseNo;
+    }
 }

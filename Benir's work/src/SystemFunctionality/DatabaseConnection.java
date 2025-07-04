@@ -63,20 +63,21 @@ public class DatabaseConnection implements Connectable{
     }
     public void savetoDatabase(Customer customer) throws SQLException{
         Connection conn=this.getConnection();
-        String sql="INSERT INTO users (name,email,password) VALUES (?,?,?)";
+        String sql="INSERT INTO token_users (user_name,user_email,password,house_no) VALUES (?,?,?,?)";
         PreparedStatement statement=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
         statement.setString(1,customer.getName());
         statement.setString(2,customer.getEmail());
         statement.setString(3,customer.getPassword());
+        statement.setString(4,customer.getHouseNo());
         statement.executeUpdate();
         ResultSet generatedKeys=statement.getGeneratedKeys();
 
         if (generatedKeys.next()) {
             customer.id=generatedKeys.getInt(1);
-            System.out.println("Customer added with ID: " +customer.id);
+            JOptionPane.showMessageDialog(null,"Customer added with ID"+customer.id);
         }
         statement.close();
-        System.out.println("customer saved, probably");
+        System.out.println("customer saved");
     }
 
     public void updateTokens(Connection connection,Double customerTokens,Integer customerId) throws SQLException{
@@ -101,14 +102,14 @@ public class DatabaseConnection implements Connectable{
         DatabaseConnection OpenAIDbase=new DatabaseConnection(creditCard);
         Customer c1= new Customer(1,"Benir Odeny",
                 "b@company.com",
-                "abcdef",101,
+                "abcdef","H3V18",
                 150.00,creditCard,OpenAIDbase);
-//        Customer c2= new Customer("Kenya","K@mail.com","374ske",132,500.00,creditCard,OpenAIDbase);
+        Customer c2= new Customer("Kenya","K@mail.com","374ske","ZH143",500.00,creditCard,OpenAIDbase);
 //
-//        OpenAIDbase.savetoDatabase(c2);
-        c1.checkTokens();
-        c1.makePayment(3000.00);
-        c1.checkTokens();
+        OpenAIDbase.savetoDatabase(c2);
+//        c1.checkTokens();
+//        c1.makePayment(3000.00);
+//        c1.checkTokens();
 //        Admin a1=new Admin();
 //        a1.checkAllUsers(creditCard);
 //        c1.makePayment(3000.00);
