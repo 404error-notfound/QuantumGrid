@@ -17,11 +17,11 @@ public class PaymentService implements Connectable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        Connection conn= DriverManager.getConnection(
+        Connection dbaseConnection= DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/user_db",
                 "root",
                 "ManCity@254"
         );
-        return conn;
+        return dbaseConnection;
     }
 }
