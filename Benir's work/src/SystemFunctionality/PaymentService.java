@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class PaymentService implements Connectable {
-    String serviceName;
+    private String serviceName;
 
     public PaymentService(String serviceName){
         this.serviceName=serviceName;

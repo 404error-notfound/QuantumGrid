@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class Customer extends User {
 
-    public int id;
+    protected int id;
     private final DatabaseConnection connection;
     private final PaymentService service;
     private Double Tokens;

@@ -15,7 +15,6 @@ public class Admin2 extends User{
     void checkTokens() throws SQLException {
 
     }
-
     @Override
     void makePayment(Double amount) throws SQLException {
 

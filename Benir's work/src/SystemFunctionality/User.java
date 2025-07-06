@@ -3,10 +3,10 @@ package SystemFunctionality;
 import java.sql.SQLException;
 
 abstract public class User {
-    protected Integer UserId;
-    protected String name;
-    protected String email;
-    protected String Password;
+    private Integer UserId;
+    private String name;
+    private String email;
+    private String Password;
     //protected int userNo; (MeterNo)
     private static int count=0;
     public User(Integer UserId ,String name, String email, String password) {
