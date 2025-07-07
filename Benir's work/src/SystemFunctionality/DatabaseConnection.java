@@ -99,8 +99,8 @@ public class DatabaseConnection implements Connectable{
     public void updateTokens(Connection connection,Double customerTokens,Integer customerId) throws SQLException{
         String sqlStatement="UPDATE customers SET customer_tokens =? WHERE customer_id=? ";
         PreparedStatement stmt=connection.prepareStatement(sqlStatement);
-        stmt.setInt(1,customerId);
-        stmt.setDouble(2,customerTokens);
+        stmt.setDouble(1,customerTokens);
+        stmt.setDouble(2,customerId);
         int rowsUpdated=stmt.executeUpdate();
         if (rowsUpdated>0){
             JOptionPane.showMessageDialog(null,"Customers Tokens Updated Successfully");
@@ -114,40 +114,19 @@ public class DatabaseConnection implements Connectable{
 
     public static void main(String[] args) throws SQLException {
 
-        Customer customer = createCustomer("John Kennedy","jkl@mail.com","3802d8g");
-        customer.makePayment(3000.00);
-        customer.checkTokens();
-
-
         Random random=new Random();
-//        for (int i=0;i<100;i++){
-//            String first = firstNames[random.nextInt(firstNames.length)];
-//            String last = lastNames[random.nextInt(lastNames.length)];
-//            String fullName = first + " " + last;
-//            String gmail=first.toLowerCase()+last.toLowerCase()+"@mail.com";
-//            String fPassword=fPasswords[random.nextInt(fPasswords.length)];
-//            String lPassword=lPasswords[random.nextInt(lPasswords.length)];
-//            String password=fPassword+lPassword;
-//            System.out.println((i + 1) + ". " + fullName+"-> "+gmail);
-//            Customer customer=createCustomer(fullName,gmail,password);
-//        }
-//        customer.checkTokens();
-//        c1.checkTokens();
-//        c1.makePayment(3000.00);
-//        c1.checkTokens();
-//        Admin a1=new Admin();
-//        a1.checkAllUsers(new PaymentService("MPESA"));
-//        c1.makePayment(3000.00);
-//        c1.checkTokens();
-//        c1.makePayment(3000.00);
-//        c1.checkTokens();
-//        SystemManagement company1=new SystemManagement();
-//        company1.verifyTokens(c1);
-//        company1.checkUserData(new Admin());
-        //Probably create a method that:
-        /*
-        Once logged in to a database, the customer is instantiated
-         */
+        for (int i=0;i<100;i++){
+            String first = firstNames[random.nextInt(firstNames.length)];
+            String last = lastNames[random.nextInt(lastNames.length)];
+            String fullName = first + " " + last;
+            String gmail=first.toLowerCase()+last.toLowerCase()+"@mail.com";
+            String fPassword=fPasswords[random.nextInt(fPasswords.length)];
+            String lPassword=lPasswords[random.nextInt(lPasswords.length)];
+            String password=fPassword+lPassword;
+            System.out.println((i + 1) + ". " + fullName+"-> "+gmail);
+            Customer customer=createCustomer(fullName,gmail,password);
+        }
+
     }
 
     private static  Customer createCustomer(String name,String email,String password) throws SQLException {

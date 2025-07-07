@@ -36,7 +36,7 @@ public class Customer extends User {
     @Override
     void checkTokens() throws SQLException {
             Connection validateConnection=service.getConnection();
-            connection.checkTokenColumn(validateConnection,this.id,Tokens);
+            connection.checkTokenColumn(validateConnection,id,Tokens);
     }
     @Override
     void makePayment(Double amount) throws SQLException {
@@ -52,7 +52,7 @@ public class Customer extends User {
                 return Tokens;
             });
             Tokens=conversion1.convertToTokens(amount);
-            connection.updateTokens(validateConnection,Tokens,this.id);
+            connection.updateTokens(validateConnection,Tokens,id);
         }
     }
     public Double getTokens(){
