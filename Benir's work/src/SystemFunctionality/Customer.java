@@ -5,23 +5,38 @@ import java.sql.*;
 
 public class Customer extends User {
 
+    protected int id;
     private final DatabaseConnection connection;
     private final PaymentService service;
     private Double Tokens;
     private static final Double TOKEN_UNIT=20.57;
+    private String houseNo;
 
     public Customer(Integer customerId,String name, String email, String password,
-                    Integer houseNo,Double initialTokens,String serviceName) {
+                    String houseNo,Double initialTokens,
+                    PaymentService serviceName,DatabaseConnection connection) {
         super(customerId,name, email, password);
+        this.houseNo=houseNo;
         this.Tokens=initialTokens;
-        this.service=new PaymentService(serviceName);
-        this.connection=new DatabaseConnection();
+        this.service=serviceName;
+        this.connection=connection;
     }
+
+    public Customer(String name,
+                    String email, String password,String houseNo,
+                    Double initialTokens, PaymentService service,
+                    DatabaseConnection connection) {
+    super(name, email, password);
+         this.Tokens=initialTokens;
+         this.houseNo=houseNo;
+         this.service=service;
+         this.connection=connection;
+}
 
     @Override
     void checkTokens() throws SQLException {
             Connection validateConnection=service.getConnection();
-            connection.checkTokenColumn(validateConnection,UserId,Tokens);
+            connection.checkTokenColumn(validateConnection,id,Tokens);
     }
     @Override
     void makePayment(Double amount) throws SQLException {
@@ -37,9 +52,14 @@ public class Customer extends User {
                 return Tokens;
             });
             Tokens=conversion1.convertToTokens(amount);
-            connection.updateTokens(validateConnection,Tokens,UserId);
+            connection.updateTokens(validateConnection,Tokens,id);
         }
     }
-
-
+    public Double getTokens(){
+        return Tokens;
+    }
+    public int getId(){return id;}
+    public String getHouseNo() {
+        return houseNo;
+    }
 }
