@@ -114,18 +114,19 @@ public class DatabaseConnection implements Connectable{
 
     public static void main(String[] args) throws SQLException {
 
-        Random random=new Random();
-        for (int i=0;i<100;i++){
-            String first = firstNames[random.nextInt(firstNames.length)];
-            String last = lastNames[random.nextInt(lastNames.length)];
-            String fullName = first + " " + last;
-            String gmail=first.toLowerCase()+last.toLowerCase()+"@mail.com";
-            String fPassword=fPasswords[random.nextInt(fPasswords.length)];
-            String lPassword=lPasswords[random.nextInt(lPasswords.length)];
-            String password=fPassword+lPassword;
-            System.out.println((i + 1) + ". " + fullName+"-> "+gmail);
-            Customer customer=createCustomer(fullName,gmail,password);
-        }
+        Customer customer=createCustomer("Nelly Gakuo","ngakuo@mail.com","sdghsuze");
+//        Random random=new Random();
+//        for (int i=0;i<100;i++){
+//            String first = firstNames[random.nextInt(firstNames.length)];
+//            String last = lastNames[random.nextInt(lastNames.length)];
+//            String fullName = first + " " + last;
+//            String gmail=first.toLowerCase()+last.toLowerCase()+"@mail.com";
+//            String fPassword=fPasswords[random.nextInt(fPasswords.length)];
+//            String lPassword=lPasswords[random.nextInt(lPasswords.length)];
+//            String password=fPassword+lPassword;
+//            System.out.println((i + 1) + ". " + fullName+"-> "+gmail);
+//            Customer customer=createCustomer(fullName,gmail,password);
+//        }
 
     }
 

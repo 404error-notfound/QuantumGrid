@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class PaymentService implements Connectable {
-    private String serviceName;
+    private final String serviceName;
 
     public PaymentService(String serviceName){
         this.serviceName=serviceName;
@@ -17,11 +17,10 @@ public class PaymentService implements Connectable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        Connection dbaseConnection= DriverManager.getConnection(
+        return DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/user_db",
                 "root",
                 "ManCity@254"
         );
-        return dbaseConnection;
     }
 }
