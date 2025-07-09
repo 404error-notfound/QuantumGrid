@@ -12,16 +12,6 @@ public class Customer extends User {
     private static final Double TOKEN_UNIT=20.57;
     private String houseNo;
 
-    public Customer(Integer customerId,String name, String email, String password,
-                    String houseNo,Double initialTokens,
-                    PaymentService serviceName,DatabaseConnection connection) {
-        super(customerId,name, email, password);
-        this.houseNo=houseNo;
-        this.Tokens=initialTokens;
-        this.service=serviceName;
-        this.connection=connection;
-    }
-
     public Customer(String name,
                     String email, String password,String houseNo,
                     Double initialTokens, PaymentService service,
